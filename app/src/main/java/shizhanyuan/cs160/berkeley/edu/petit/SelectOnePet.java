@@ -39,6 +39,7 @@ public class SelectOnePet extends Activity{
     private View selectRectangle3;
     private View selectRectangle4;
     private Button doneNamePet;
+    private Button cancel_name_pet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +57,8 @@ public class SelectOnePet extends Activity{
         blackFluffy = (ImageButton) findViewById(R.id.black_fluffy_button);
 
         doneNamePet = (Button) findViewById(R.id.done_name_pet);
-
-        catButton.setOnClickListener(new View.OnClickListener(){
+        cancel_name_pet = (Button) findViewById(R.id.cancel_name_pet);
+        catButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectRectangle1.setVisibility(view.VISIBLE);
@@ -68,7 +69,7 @@ public class SelectOnePet extends Activity{
             }
         });
 
-        dogButton.setOnClickListener(new View.OnClickListener(){
+        dogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectRectangle1.setVisibility(view.INVISIBLE);
@@ -78,7 +79,7 @@ public class SelectOnePet extends Activity{
             }
         });
 
-        fluffy.setOnClickListener(new View.OnClickListener(){
+        fluffy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectRectangle1.setVisibility(view.INVISIBLE);
@@ -89,7 +90,7 @@ public class SelectOnePet extends Activity{
             }
         });
 
-        blackFluffy.setOnClickListener(new View.OnClickListener(){
+        blackFluffy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectRectangle1.setVisibility(view.INVISIBLE);
@@ -108,8 +109,7 @@ public class SelectOnePet extends Activity{
                 name = petName.getText().toString();
                 try {
                     addNewPet(getBitmap("happy.png"), name);
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                     System.out.println("Can't get picture icon");
                     return;
@@ -119,8 +119,14 @@ public class SelectOnePet extends Activity{
             }
         });
 
+        cancel_name_pet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SelectOnePet.this, PetIt.class);
+                startActivity(i);
+            }
+        });
     }
-
     protected void addNewPet(Bitmap bm, String name) {
         ListCard listCard = PetIt.mRemoteDeckOfCards.getListCard();
         System.err.print(listCard.size()+1);

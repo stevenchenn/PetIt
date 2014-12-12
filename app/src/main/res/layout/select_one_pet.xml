@@ -20,7 +20,7 @@
         android:layout_width="125dp"
         android:layout_height="90dp"
         android:background="@drawable/rectangle"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:layout_alignTop="@+id/cat_button"
         android:layout_alignRight="@+id/cancel_name_pet"
         android:layout_alignEnd="@+id/cancel_name_pet">

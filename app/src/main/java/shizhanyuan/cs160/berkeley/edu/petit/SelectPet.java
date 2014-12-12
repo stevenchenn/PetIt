@@ -51,7 +51,7 @@ public class SelectPet extends Activity{
     private View selectRectangle2;
     private View selectRectangle3;
     private View selectRectangle4;
-
+    private Button cancel_name_pet;
 
     private Button doneNamePet;
 
@@ -78,7 +78,7 @@ public class SelectPet extends Activity{
         blackFluffy = (ImageButton) findViewById(R.id.black_fluffy_button);
 
         doneNamePet = (Button) findViewById(R.id.done_name_pet);
-
+        cancel_name_pet = (Button) findViewById(R.id.cancel_name_pet);
         catButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -140,7 +140,13 @@ public class SelectPet extends Activity{
             }
         });
 
-
+        cancel_name_pet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SelectPet.this, PetIt.class);
+                startActivity(i);
+            }
+        });
 
     }
 
